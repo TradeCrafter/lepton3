@@ -9,7 +9,7 @@
 static const char *device = "/dev/spidev0.0";
 uint8_t mode;
 static uint8_t bits = 8;
-static uint32_t speed = 27000000;
+static uint32_t speed = 32000000;
 int snapshotCount = 0;
 int frame = 0;
 static int raw [120][160];
@@ -169,7 +169,7 @@ void LeptonThread::run()
 			value = (frameBuffer[k] - minValue) * scale;
 			//printf("%u\n", frameBuffer[k]);
 			
-			const int *colormap = colormap_ironblack;
+			const int *colormap = colormap_glowBow;
 			color = qRgb(colormap[3*value], colormap[3*value+1], colormap[3*value+2]);
 			
 				if((k/PACKET_SIZE_UINT16) % 2 == 0){//1
